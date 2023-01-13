@@ -28,8 +28,8 @@ class Twitter_Spaces:
     """
     A class for monitoring a if a user hosts or speaks in a twitter space
     """
-    def __init__(self, binary):
-        FIREFOX_BINARY_LOCATION = r'/Applications/Firefox.app/Contents/MacOS/firefox-bin'
+    # def __init__(self, binary):
+    #     FIREFOX_BINARY_LOCATION = r'/Applications/Firefox.app/Contents/MacOS/firefox-bin'
 
     def domain_to_url(self, domain: str) -> str:
         if domain.startswith("."):
@@ -95,8 +95,6 @@ class Twitter_Spaces:
         seen_spaces = set()
 
         while(True):
-            driver.refresh()
-            sleep(5)
             # To see if the user is a speaker for or hosting a space, search the page for this url format
             # https://twitter.com/i/spaces/1mrGmkbmMRVxy/peek
             # If it exists, pass the inner id to callback. If not, sleep and refresh
@@ -121,9 +119,4 @@ class Twitter_Spaces:
             
 
 
-yt = Twitter_Spaces()
 
-def example_callback(spaces_id):
-    print(f"New Space: '{spaces_id}'!")
-
-yt.monitor_user_for_spaces('cz2doge', example_callback)

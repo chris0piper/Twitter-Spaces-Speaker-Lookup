@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Twitter-Spaces-Speaker-Lookup",
-    version="0.0.1",
+    version="0.0.6",
     author="Example Author",
     author_email="chris0piper@gmail.com",
     description="Program to monitor twitter spaces for when a given user speaks in or hosts a twitter space.",

@@ -16,9 +16,29 @@
 </p>
 <br/>
 
+## Explination
+
+This tool uses Selenium Firefox webdriver to grab the spaces ID's which a specified user is speaking at or hosting. There are currently no unauthenticated api endpoints (both public or private) which allow you to view when a user is speaking in a space. For this reason, this library requires a twitter login to run.
+
+It runs selenium in headless mode and scrapes from a users profile page.
+
+The original motivation for this tool is to monitor users and make trades based on what they say in twitter spaces, but saw others online asking how to get these space ids so decided to share! Hope you enjoy.
+
+<br/>
+
+## Explination
+
+This tool uses Selenium Firefox webdriver to grab the spaces ID's which a specified user is speaking at or hosting. There are currently no unauthenticated api endpoints (both public or private) which allow you to view when a user is speaking in a space. For this reason, this library requires a twitter login to run.
+
+It runs selenium in headless mode and scrapes from a users profile page.
+
+The original motivation for this tool is to monitor users and make trades based on what they say in twitter spaces, but saw others online asking how to get these space ids so decided to share! Hope you enjoy.
+
+<br/>
+
 ## Installation
 
-To install, you must have firefox downloaded on your computer
+To install, you must have firefox downloaded on your computer. (Any error involving geckodriver means firefox is not in your path)
 
 ```bash
 pip install Twitter-Spaces-Speaker-Lookup
@@ -28,7 +48,7 @@ Create a blank file called "login.json"
 
 Open up firefox and log into twitter and navigate into your profile page.
 
-Download a cooking grabbing extension (I use EditThisCookie2 for firefox) and copy all cookies.
+Download a cookie grabbing extension (I use EditThisCookie2 for firefox) and copy all cookies.
 
 Paste these cookies into login.json and you're good to go!
 <br/>
@@ -38,33 +58,19 @@ Paste these cookies into login.json and you're good to go!
 ### Example:
 
 ```py
-ts = Twitter_Spaces()
+import importlib  
+speaker_lookup = importlib.import_module("Twitter-Spaces-Speaker-Lookup.speaker_lookup")
+ts = speaker_lookup.Twitter_Spaces()
 
-// Create a callback function which takes in a twitter_spaces_id to be run for each space the target user joins or 
+# Create a callback function which takes in a twitter_spaces_id to be run for each space the target user joins or 
 def example_callback(spaces_id):
     print(f"New Space: '{spaces_id}'!")
 
-monitor_user = 'elonmusk'
+monitor_user = 'elon2doge'
 ts.monitor_user_for_spaces(monitor_user, example_callback)
-
 
 // Whenever the monitored user speaks at or hosts a twitter space, your callback function will be called.
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## 💙 Contributing
 
